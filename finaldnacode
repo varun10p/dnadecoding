@@ -1,0 +1,39 @@
+mystring=open("/share/data/class/day5/puzzle.txt").read()
+a =  mystring.replace(",","").replace("\n"," ").split(" ")
+
+ks=4
+result = a[0] 
+key = result[(-ks):]
+
+index = 0
+while (index < len(a)):
+	frag = a[index]
+	if key in frag and frag.endswith(key) == False:
+		result += frag[frag.find(key)+ks:]
+		key = result[(-ks):]
+		index = 0
+		print "____"
+		print "key: " + key
+		print "result: " + result
+	else:
+		index += 1
+print result
+
+#.startswith
+#key = result[0:2]
+key= result[0:ks]
+
+index=0
+while (index < len(a)):
+	frag = a[index]
+	if key in frag and frag.startswith(key) == False:
+		result = frag[0:frag.find(key)] + result
+		key = result[0:ks]
+		index = 0
+		print "____"
+		print "key: " + key
+		print "result: " + result
+	else:
+		index += 1
+print result
+
