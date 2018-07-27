@@ -1,1 +1,4 @@
-dna code
+mystring=open("/share/data/class/day5/puzzle.txt").read()
+print mystring.replace(",","").replace("\n"," ").split(" ")
+for i in mystring
+	if i="TGT",print i
